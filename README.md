@@ -1,25 +1,27 @@
 # Project 5 Calendar Program
-This Program contains 7 classes including Account, Appointment, Calender, Customer, Seller, SharingEconomy, and Store. Those classes working together will implement a
-system that can implement a marketplace calender. The calendar will allow for booking and managing appointments between sellers and customers. Since the system needs
-to store the date even when the program shuts down, most class have their own class to keep their data.
+This Program contains 9 classes: Account.java, Appointment.java, Calender.java, Client.java, Client1.java, Customer.java, Seller.java, SharingEconomy.java, and Store.java. Those classes working together will implement a system that can implement a marketplace calender. The calendar will allow for booking and managing appointments between sellers and customers. Since the system needs to store the date even when the program shuts down, most class have their own class to keep their data. 
 
-James submitted Vocareum workspace
-Saanika & Spencer submitted report on Brightspace
+James submitted Vocareum workspace.
 
-**Appointment
-*Appointment Class
-The appointment class can format inputs in to the an appintment object or a string object. So, the calender class will handle and write each appointment to its own .txt
-file.
-The appointment class's object contains following arguements:
-String title, String calender, String store, int capacity, int booking, int startTime, int endTime
-The same thing will appear in each appointment line in the calender file.
+Saanika submitted the Report on Brightspace.
+
+Spencer submitted the Presentation on Brightspace.
 
 
-**Calender
-*Calender Class
-The calender class will read a calender file with a calender title, a descritionm, a time when last time the calender is modified, and lines of appointments, then the
-calender class will create a calender object that contains all the attributes of the calender file. The calender is able to create, modify, or remove any appoiment in its file.
-That allows customers to make or cancel the appintment by adding or subtracting the attendance number for the booking number of each appointment.
+## Appointment.java
+- Appointment Class
+- Formats inputs into the appointment object or a string object
+- Handles and writes each appointment to its own .txt file
+- Contains String title, String calender, String store, int capacity, int booking, int startTime, int endTime
+- The equivalent will appear in each appointment line in the Calender.java file.
+
+
+## Calender.java
+- Calendar Class
+- Reads a calendar file with a calendar title, a description, when the calender was last modified, and the lines of appointments
+- Creates a calender object that contains all the attributes of the calendar file. 
+- The calendar is able to create, modify, or remove any appointment in its file.
+- Allows customers to make or cancel the appintment by adding or subtracting the attendance number for the booking number of each appointment.
 
 *Calender File format:
 
@@ -37,10 +39,11 @@ Appointment 2 title,Appointment 2 calender,Appointment 2 store,Appointment 2 cap
 .
 
 
-**Store
-*Store class
-The store class will read store files listing calender files names. By reading those file names and put them into calender class, the store class can read all calender
-files in its own file. The store class also manages all calenders under its file. The seller will be able to create, modify, or delete any calender files managed by it.
+## Store.java
+- Reads store files listing calender files names, then stores them into Calender.java
+- Reads all calender files in its own file
+- Manages all calenders under its file
+- Allows seller to create, modify, or delete any calender files managed by it.
 
 *Store file format:
 
@@ -54,9 +57,10 @@ calender 3 name
 .
 .
 
-**Customer
-*Customer class
-The customer class will read its own file only containing their approved appointments and store it into the customer object. It can list all approved appointments on the terminal
+## Customer.java
+- Read its own file containing approved appointments
+- Store approved appointments into the Customer object
+- Lists all approved appointments
 
 *Customer file format:
 
@@ -70,12 +74,13 @@ Appointment 2 title,Appointment 2 calender,Appointment 2 store,Appointment 2 cap
 .
 
 
-** Seller
-*Seller class
-The seller classes read two files one is the store list and one contains all approved appointments. After the seller class is called, it will reads those two files
-and store them in two arraylists.The seller class is in charge of approving the appintment requests by reading a calender file and picking an appointment to send to
-a customer's approved appointment list and seller's owm appointment list. The seller can view the all the approved appointments of a store.Since each seller can open
-multiple stores, the seller class also opens stores by creatinga new txt file for one store.
+## Seller.java
+- Reads two files; the store list and one contains all approved appointments
+- After the seller class is called, it will reads those two files
+and store them in two arraylists.
+- The seller class is in charge of approving the appintment requests by reading a calender file and picking an appointment to send to
+a customer's approved appointment list and seller's owm appointment list. 
+- The seller can view the all the approved appointments of a store.Since each seller can open multiple stores, the seller class also opens stores by creating a new txt file for one store.
 
 *Seller file format:
 
@@ -101,9 +106,10 @@ Appointment 2 title,Appointment 2 calender,Appointment 2 store,Appointment 2 cap
 .
 
 
-**Account
+## Account.java
 *Account class
-Account class controls the system's log in, sign up, and account managements.When the accout class is called it will reads two files containing sellers' and customers'
+- Controls the system's log in, sign up, and account managements
+- When the account class is called it will reads two files containing sellers' and customers'
 account info including the username, password, and all file locations related to them. Signing up an account will let the account class write a line to their countering
 file to record their username, passwordm and file locations. The only difference between the seller and customer account file is seller contains more column of approved
 appointment file location
@@ -126,12 +132,17 @@ username,password,file location
 .
 
 
-*SharingEconomy is the main method
-*************
-To run this program, you need to make an account first by signing up an account. You can still open the "CustomerAccount" and "SellerAccount" files to find an existing account
+## SharingEconomy.java 
+- To run this program, you need to make an account first by signing up an account. You can still open the "CustomerAccount" and "SellerAccount" files to find an existing account
 to login some of them may not have their own store and their store may not have a calender. But you can use any of the account including your created one to test the functions
-This program is only able to handle on operation at a time. that means if you made an appointment or logged in with wrong username and password, you ened to start over. But all
+- This program is only able to handle on operation at a time. that means if you made an appointment or logged in with wrong username and password, you ened to start over. But all
 changed made to the data will be saved. And when you are asked to eneter a file path, you are expected to type in the correct path. you can find the path in the files
 of "CustomerAccount" and "SellerAccount" to tell you all the information.
 
 My suggestion is to find the "CustomerAccount" and "SellerAccount" and get all the account and filename info before you run the program
+
+## Client.java 
+- 
+
+## Client1.java
+- 
