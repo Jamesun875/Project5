@@ -76,11 +76,10 @@ Appointment 2 title,Appointment 2 calender,Appointment 2 store,Appointment 2 cap
 
 ## Seller.java
 - Reads two files; the store list and one contains all approved appointments
-- After the seller class is called, it will reads those two files
-and store them in two arraylists.
-- The seller class is in charge of approving the appintment requests by reading a calender file and picking an appointment to send to
-a customer's approved appointment list and seller's owm appointment list. 
-- The seller can view the all the approved appointments of a store.Since each seller can open multiple stores, the seller class also opens stores by creating a new txt file for one store.
+- After the seller class is called, it will reads those two files and stores them in two arraylists.
+- Allows for approving appointment requests by reading a calender file and picking an appointment to send to a customer's approved appointment list and seller's own appointment list. 
+- The seller can view all the approved appointments of a store.
+- Since each seller can open multiple stores, the seller class also opens stores by creating a new txt file for one store.
 
 *Seller file format:
 
@@ -107,12 +106,11 @@ Appointment 2 title,Appointment 2 calender,Appointment 2 store,Appointment 2 cap
 
 
 ## Account.java
-*Account class
 - Controls the system's log in, sign up, and account managements
-- When the account class is called it will reads two files containing sellers' and customers'
-account info including the username, password, and all file locations related to them. Signing up an account will let the account class write a line to their countering
-file to record their username, passwordm and file locations. The only difference between the seller and customer account file is seller contains more column of approved
-appointment file location
+- When the account class is called, it will read two files containing the account info of both sellers and customers.
+- Account info includes the username, password, and all file locations related to them.
+- Signing up for an account will let the account class write a line to their countering file to record their username, password and file locations. 
+- The difference between the seller and customer account file is that the seller account file contains more columns of approved appointment file locations while the custotmer account file doesn't.
 
 *Seller account file format:
 
@@ -133,13 +131,14 @@ username,password,file location
 
 
 ## SharingEconomy.java 
-- To run this program, you need to make an account first by signing up an account. You can still open the "CustomerAccount" and "SellerAccount" files to find an existing account
-to login some of them may not have their own store and their store may not have a calender. But you can use any of the account including your created one to test the functions
-- This program is only able to handle on operation at a time. that means if you made an appointment or logged in with wrong username and password, you ened to start over. But all
-changed made to the data will be saved. And when you are asked to eneter a file path, you are expected to type in the correct path. you can find the path in the files
-of "CustomerAccount" and "SellerAccount" to tell you all the information.
-
-My suggestion is to find the "CustomerAccount" and "SellerAccount" and get all the account and filename info before you run the program
+- In order to run this program, you need to make an account first by signing up an account. 
+- You can still open the "CustomerAccount" and "SellerAccount" files to find an existing account to login some of them may not have their own store and their store may not have a calender. 
+- You can use any of the accounts, including your created account to test the functions of the program.
+- This program is only able to handle one operation at a time, which means that if you made an appointment or logged in with wrong username and password, you will need to start over. 
+- All changes made to the data will be saved. 
+- When the user is prompted to enter a file path, the user is expected to type in the correct path, which can be found in the files
+in the "CustomerAccount" and "SellerAccount" files.
+- RECOMMENDED: Find the "CustomerAccount" and "SellerAccount" and get all the account and filename info before you run the program.
 
 ## Client.java 
 - 
