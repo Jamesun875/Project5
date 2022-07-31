@@ -1,4 +1,4 @@
-# porject-4-Summer
+# Project 5 Calendar Program
 This Program contains 7 classes including Account, Appointment, Calender, Customer, Seller, SharingEconomy, and Store. Those classes working together will implement a
 system that can implement a marketplace calender. The calendar will allow for booking and managing appointments between sellers and customers. Since the system needs
 to store the date even when the program shuts down, most class have their own class to keep their data.
