@@ -8,7 +8,7 @@ Important: Do not delete CustomerAccount.txt and SellerAccount.txt, since those 
 
 ## Seller:
 - Username: cv
-- Password:1223
+- Password: 1223
 - File Location(this file contains names of all stores opened by the seller): cv
 - Approved appointments file location(this file contains customer appointments approved by the seller): cv1
 - store: apple:
