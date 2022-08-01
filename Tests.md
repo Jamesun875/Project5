@@ -4,6 +4,8 @@ In the repository there are some existing customer and seller files you can use 
 
 The detailed account information is listed below. You can still go to the CustomerAccount.txt and SellerAccount.txt to look at.
 
+Important: Do not delete CustomerAccount.txt and SellerAccount.txt
+
 ## Seller:
 - Username: cv
 - Password:1223
