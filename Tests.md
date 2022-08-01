@@ -4,7 +4,7 @@ In the repository there are some existing customer and seller files you can use 
 
 The detailed account information is listed below. You can still go to the CustomerAccount.txt and SellerAccount.txt to look at.
 
-Important: Do not delete CustomerAccount.txt and SellerAccount.txt, since those two are files stores all seller and customer account info
+Important: Do not delete CustomerAccount.txt and SellerAccount.txt, since those two are files stores all seller and customer accounts info
 
 ## Seller:
 - Username: cv
