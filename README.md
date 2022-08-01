@@ -1,5 +1,5 @@
 # Project 5 Calendar Program
-This Program contains 9 classes: Account.java, Appointment.java, Calender.java, Client.java, Client1.java, Customer.java, Seller.java, SharingEconomy.java, and Store.java. Those classes working together will implement a system that can implement a marketplace calender. The calendar will allow for booking and managing appointments between sellers and customers. Since the system needs to store the date even when the program shuts down, most class have their own class to keep their data.
+This Program contains 9 classes: Account.java, Appointment.java, Calender.java, Client.java, Client1.java, Customer.java, Seller.java, Server.java, and Store.java. Those classes working together will implement a system that can implement a marketplace calender. The calendar will allow for booking and managing appointments between sellers and customers. Since the system needs to store the date even when the program shuts down, most class have their own class to keep their data.
 
 James submitted Vocareum workspace.
 
