@@ -169,4 +169,4 @@ username,password,file location
 
 
 ## Client1.java
-- Does the same thing as Client.java. This class will work with Client.java to simulate concurrent state.
+- Does the same thing as Client.java. This class will work with Client.java to simulate concurrent state on the server.
