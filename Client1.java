@@ -1,9 +1,9 @@
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.io.InputStreamReader;
 
 public class Client1 {
     public static void main(String[] args) throws IOException {
