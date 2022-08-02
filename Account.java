@@ -132,8 +132,9 @@ public class Account {
         return correct;
     }
 
-    public void deleteSellerAccount(String username) {
+    public String deleteSellerAccount(String username) {
         boolean found = false;
+        String output = "";
         int location = 0;
         for (int i = 0; i < sellers.size(); i++) {
             String[] parts = sellers.get(i).split(",");
@@ -151,30 +152,35 @@ public class Account {
         }
         if (found) {
             this.sellers.remove(location);
+            output = "Your account has been deleted";
+        } else {
+            output = "Account deletion failure";
         }
-        if (!found) {
-            JOptionPane.showMessageDialog(null, "Cannot find your credentials", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
+        return output;
     }
 
-    public void deleteCustomerAccount(String username) {
+    public String deleteCustomerAccount(String username) {
         boolean found = false;
+        String output = "";
+        int location = 0;
         for (int i = 0; i < customers.size(); i++) {
             String[] parts = customers.get(i).split(",");
             String user = parts[0];
             if (user.equals(username)) {
                 found = true;
-                this.customers.remove(i);
+                location = i;
                 String customerFile = parts[2];
                 File f = new File(customerFile);
                 f.delete();
             }
         }
-        if (!found) {
-            JOptionPane.showMessageDialog(null, "Cannot find your credentials", "Error",
-                    JOptionPane.ERROR_MESSAGE);
+        if (found) {
+            this.customers.remove(location);
+            output = "Your account has been deleted";
+        } else {
+            output = "Account deletion failure";
         }
+        return output;
     }
 
     public String returnCustomerFilename(String username) {

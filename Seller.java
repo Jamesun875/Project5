@@ -56,6 +56,7 @@ public class Seller {
     public String addToApproveList(String calenderFileLocation, String title, String customerFileLocation,
                                  String sellerFileLocation) {
         String output = "";
+        boolean found = false;
         try {
             File f = new File(calenderFileLocation);
             FileReader fr = new FileReader(f);
@@ -76,19 +77,24 @@ public class Seller {
             for (int i = 0; i < appointments.size(); i++) {
                 if (appointments.get(i).getTitle().equals(title)) {
                     approvedAppointment = appointments.get(i);
+                    found = true;
                 }
             }
-            File g = new File(customerFileLocation);
-            FileOutputStream fos1 = new FileOutputStream(g, true);
-            PrintWriter pw1 = new PrintWriter(fos1);
-            File h = new File(sellerFileLocation);
-            FileOutputStream fos2 = new FileOutputStream(h, true);
-            PrintWriter pw2 = new PrintWriter(fos2);
-            pw1.println(approvedAppointment);
-            pw2.println(approvedAppointment);
-            pw1.close();
-            pw2.close();
-            output = "The appointment was added to the list";
+            if (found && approvedAppointment != null) {
+                File g = new File(customerFileLocation);
+                FileOutputStream fos1 = new FileOutputStream(g, true);
+                PrintWriter pw1 = new PrintWriter(fos1);
+                File h = new File(sellerFileLocation);
+                FileOutputStream fos2 = new FileOutputStream(h, true);
+                PrintWriter pw2 = new PrintWriter(fos2);
+                pw1.println(approvedAppointment);
+                pw2.println(approvedAppointment);
+                pw1.close();
+                pw2.close();
+                output = "The appointment was added to the list";
+            } else {
+                output = "Please enter the correct info and start over";
+            }
         } catch (IOException e) {
             output = "Please enter the correct info and start over";
         }

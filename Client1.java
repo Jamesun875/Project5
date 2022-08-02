@@ -1,9 +1,9 @@
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.io.InputStreamReader;
 
 public class Client1 {
     public static void main(String[] args) throws IOException {
@@ -27,19 +27,19 @@ public class Client1 {
                 pw.flush();
 
                 if (role.equals("Customer")) {
-                    String username = JOptionPane.showInputDialog(null, "Please enter your username",
-                            "Login", JOptionPane.QUESTION_MESSAGE);
+                    String username = JOptionPane.showInputDialog(null,
+                            "Please enter your username", "Login", JOptionPane.QUESTION_MESSAGE);
                     pw.println(username);
                     pw.flush();
-                    String password = JOptionPane.showInputDialog(null, "Please enter your password",
-                            "Login", JOptionPane.QUESTION_MESSAGE);
+                    String password = JOptionPane.showInputDialog(null, "" +
+                            "Please enter your password", "Login", JOptionPane.QUESTION_MESSAGE);
                     pw.println(password);
                     pw.flush();
 
                     String check = brf.readLine();
                     if (check.equals("Correct")) {
                         String[] customerChoices = {"View approved appointments", "Make/cancel appointments",
-                                "View Calender"};
+                                "View Calender", "Delete your account"};
                         String customerMove = (String) JOptionPane.showInputDialog(null,
                                 "What do you want to do", "Customer menu", JOptionPane.PLAIN_MESSAGE,
                                 null, customerChoices, null);
@@ -57,7 +57,8 @@ public class Client1 {
                                     approvedAppointments += parts[i] + "\n";
                                 }
                             }
-                            JOptionPane.showMessageDialog(null, approvedAppointments, "View approved appointments", JOptionPane.PLAIN_MESSAGE);
+                            JOptionPane.showMessageDialog(null, approvedAppointments,
+                                    "View approved appointments", JOptionPane.PLAIN_MESSAGE);
                         } else if (customerMove.equals("Make/cancel appointments")) {
                             String[] appointmentOptions = {"Make an appointment", "Cancel an appointment"};
                             String appointmentMove = (String) JOptionPane.showInputDialog(null,
@@ -129,27 +130,32 @@ public class Client1 {
                             }
                             JOptionPane.showMessageDialog(null, appointments, "Calendar list",
                                     JOptionPane.PLAIN_MESSAGE);
+                        } else if (customerMove.equals("Delete your account")) {
+                            String result = brf.readLine();
+                            JOptionPane.showMessageDialog(null, result, "Delete account",
+                                    JOptionPane.PLAIN_MESSAGE);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Please enter the correct username and " +
-                                "password and start over", "Incorrect credentials", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,
+                                "Please enter the correct username and password and start over",
+                                "Incorrect credentials", JOptionPane.ERROR_MESSAGE);
                     }
 
                 } else if (role.equals("Seller")) {
-                    String username = JOptionPane.showInputDialog(null, "Please enter your username",
-                            "Login", JOptionPane.QUESTION_MESSAGE);
+                    String username = JOptionPane.showInputDialog(null,
+                            "Please enter your username", "Login", JOptionPane.QUESTION_MESSAGE);
                     pw.println(username);
                     pw.flush();
 
-                    String password = JOptionPane.showInputDialog(null, "Please enter your password",
-                            "Login", JOptionPane.QUESTION_MESSAGE);
+                    String password = JOptionPane.showInputDialog(null,
+                            "Please enter your password", "Login", JOptionPane.QUESTION_MESSAGE);
                     pw.println(password);
                     pw.flush();
 
                     String check = brf.readLine();
                     if (check.equals("Correct")) {
                         String[] sellerChoice = {"Modify calendar", "Approve appointments",
-                                "View store's approved appointments", "Create store"};
+                                "View store's approved appointments", "Create store", "Delete your account"};
                         String sellerMove = (String) JOptionPane.showInputDialog(null,
                                 "What do you want to do", "Seller menu", JOptionPane.PLAIN_MESSAGE,
                                 null, sellerChoice, null);
@@ -158,7 +164,8 @@ public class Client1 {
 
                         if (sellerMove.equals("Modify calendar")) {
                             String storeName = JOptionPane.showInputDialog(null,
-                                    "What is the store name", "Modify calendar", JOptionPane.QUESTION_MESSAGE);
+                                    "What is the store name", "Modify calendar",
+                                    JOptionPane.QUESTION_MESSAGE);
                             pw.println(storeName);
                             pw.flush();
 
@@ -194,21 +201,21 @@ public class Client1 {
                                             "Build an empty calendar", JOptionPane.PLAIN_MESSAGE);
                                 } else if (createMove.equals("Import a CSV file to create a calendar")) {
                                     String calendarFilename = JOptionPane.showInputDialog(null,
-                                            "What is the name of the calendar", "Create an empty calendar",
-                                            JOptionPane.QUESTION_MESSAGE);
+                                            "What is the name of the calendar",
+                                            "Get the name of the calendar first", JOptionPane.QUESTION_MESSAGE);
                                     pw.println(calendarFilename);
                                     pw.flush();
                                     String calendarDescription = JOptionPane.showInputDialog(null,
                                             "What is the description of the calendar",
-                                            "Create an empty calendar", JOptionPane.QUESTION_MESSAGE);
+                                            "Then the description", JOptionPane.QUESTION_MESSAGE);
                                     pw.println(calendarDescription);
                                     pw.flush();
                                     String calendarResult = brf.readLine();
-                                    JOptionPane.showMessageDialog(null, calendarResult, "Import calendar",
-                                            JOptionPane.PLAIN_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, calendarResult,
+                                            "Import calendar", JOptionPane.PLAIN_MESSAGE);
                                     String filenameCSV = JOptionPane.showInputDialog(null,
                                             "Please enter the filename of CSV file and please include .txt",
-                                            "Import calendar", JOptionPane.QUESTION_MESSAGE);
+                                            "Import appointments from a csv file", JOptionPane.QUESTION_MESSAGE);
                                     pw.println(filenameCSV);
                                     pw.flush();
                                     String result = brf.readLine();
@@ -258,8 +265,8 @@ public class Client1 {
                                     JOptionPane.showMessageDialog(null, result, "Add appointment",
                                             JOptionPane.PLAIN_MESSAGE);
                                     String now = brf.readLine();
-                                    JOptionPane.showMessageDialog(null, now, "Calendar's last change",
-                                            JOptionPane.PLAIN_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, now,
+                                            "Calendar's last change", JOptionPane.PLAIN_MESSAGE);
                                 } else if (calenderEditionMove.equals("Remove appointment")) {
                                     String calendar = JOptionPane.showInputDialog(null,
                                             "What is the name of the calendar", "Remove appointment",
@@ -267,8 +274,8 @@ public class Client1 {
                                     pw.println(calendar);
                                     pw.flush();
                                     String now = brf.readLine();
-                                    JOptionPane.showMessageDialog(null, now, "Calendar's last change",
-                                            JOptionPane.PLAIN_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, now,
+                                            "Calendar's last change", JOptionPane.PLAIN_MESSAGE);
                                 }
                             } else if (calendarMove.equals("Delete calendar")) {
                                 String calendarFilename = JOptionPane.showInputDialog(null,
@@ -327,9 +334,10 @@ public class Client1 {
                             String result = brf.readLine();
                             JOptionPane.showMessageDialog(null, result, "Create store",
                                     JOptionPane.PLAIN_MESSAGE);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "The Program is shutting down",
-                                    "Goodbye", JOptionPane.PLAIN_MESSAGE);
+                        } else if (sellerMove.equals("Delete your account")) {
+                            String result = brf.readLine();
+                            JOptionPane.showMessageDialog(null, result, "Delete account",
+                                    JOptionPane.PLAIN_MESSAGE);
                         }
                     }
                 }
@@ -341,12 +349,12 @@ public class Client1 {
                 pw.flush();
 
                 if (role.equals("Customer")) {
-                    String username = JOptionPane.showInputDialog(null, "Please enter your username",
-                            "Signup", JOptionPane.QUESTION_MESSAGE);
+                    String username = JOptionPane.showInputDialog(null,
+                            "Please enter your username", "Signup", JOptionPane.QUESTION_MESSAGE);
                     pw.println(username);
                     pw.flush();
-                    String password = JOptionPane.showInputDialog(null, "Please enter your password",
-                            "Signup", JOptionPane.QUESTION_MESSAGE);
+                    String password = JOptionPane.showInputDialog(null,
+                            "Please enter your password", "Signup", JOptionPane.QUESTION_MESSAGE);
                     pw.println(password);
                     pw.flush();
                     String filename = JOptionPane.showInputDialog(null,
@@ -356,13 +364,13 @@ public class Client1 {
                     String result = brf.readLine();
                     JOptionPane.showMessageDialog(null, result, "Signup", JOptionPane.PLAIN_MESSAGE);
                 } else if (role.equals("Seller")) {
-                    String username = JOptionPane.showInputDialog(null, "Please enter your username",
-                            "Signup", JOptionPane.QUESTION_MESSAGE);
+                    String username = JOptionPane.showInputDialog(null,
+                            "Please enter your username", "Signup", JOptionPane.QUESTION_MESSAGE);
                     pw.println(username);
                     pw.flush();
 
-                    String password = JOptionPane.showInputDialog(null, "Please enter your password",
-                            "Signup", JOptionPane.QUESTION_MESSAGE);
+                    String password = JOptionPane.showInputDialog(null,
+                            "Please enter your password", "Signup", JOptionPane.QUESTION_MESSAGE);
                     pw.println(password);
                     pw.flush();
                     String filename = JOptionPane.showInputDialog(null,

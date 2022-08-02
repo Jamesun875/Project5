@@ -177,7 +177,7 @@ public class Calender {
             pw.close();
             output = "successful import";
         } catch (Exception e) {
-            output = "Please enter the correct filenames";
+            output = "Please enter the correct filenames, and make sure the file only contains appointments with correct format";
         }
         return output;
     }

@@ -3,8 +3,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.Socket;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server extends Thread {
     Socket socket;
@@ -93,6 +93,9 @@ public class Server extends Thread {
                             }
                             pw.println(appointments);
                             pw.flush();
+                        } else if (customerChoice.equals("Delete your account")) {
+                            pw.println(account.deleteCustomerAccount(username));
+                            pw.flush();
                         }
                     } else {
                         pw.println("Incorrect");
@@ -176,6 +179,9 @@ public class Server extends Thread {
                             String storeName = brf.readLine();
                             Seller seller = new Seller(filename, sellerAppointmentList);
                             pw.println(seller.createStore(storeName));
+                            pw.flush();
+                        } else if (sellerMove.equals("Delete your account")) {
+                            pw.println(account.deleteSellerAccount(filename));
                             pw.flush();
                         }
                     } else {
