@@ -40,21 +40,21 @@ public class Store {
         }
     }
 
-    public String addCalender(String fileName, String description) throws IOException {
-        File f = new File(fileName);
+    public String addCalender(String file, String description) throws IOException {
+        File f = new File(file);
         FileOutputStream fos = new FileOutputStream(f);
         PrintWriter pw = new PrintWriter(fos);
-        pw.println(fileName);
+        pw.println(file);
         pw.println(description);
         pw.close();
-        calenders.add(new Calender(fileName));
-        calenderNames.add(fileName);
+        calenders.add(new Calender(file));
+        calenderNames.add(file);
         updateStore();
         return "The calendar is successfully added";
     }
 
-    public String deleteCalender(String fileName) {
-        File f = new File(fileName);
+    public String deleteCalender(String file) {
+        File f = new File(file);
         if (f.delete()) {
             return "The calendar is successfully deleted";
         } else {

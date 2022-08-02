@@ -101,17 +101,17 @@ public class Seller {
         return output;
     }
 
-    public String createStore(String fileName) throws IOException {
-        File f = new File(fileName);
+    public String createStore(String file) throws IOException {
+        File f = new File(file);
         FileOutputStream fos = new FileOutputStream(f);
         PrintWriter pw = new PrintWriter(fos);
         pw.close();
-        this.stores.add(new Store(fileName));
-        this.storeFileNames.add(fileName);
+        this.stores.add(new Store(file));
+        this.storeFileNames.add(file);
         File g = new File(this.fileName);
         FileOutputStream fos1 = new FileOutputStream(g);
         PrintWriter pw1 = new PrintWriter(fos1);
-        pw1.println(fileName);
+        pw1.println(file);
         pw1.close();
         updateSeller();
         return "You just got a new store";

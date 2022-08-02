@@ -4,7 +4,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-
+/**
+ * The client class give user GUI and get system input.
+ *
+ * <p>Purdue University -- CS18000 -- Summer 2022 -- Project4</p>
+ *
+ * @author James Sun
+ * @version July 29, 2022
+ */
 public class Client {
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket("localhost", 4242);
@@ -31,7 +38,7 @@ public class Client {
                             "Please enter your username", "Login", JOptionPane.QUESTION_MESSAGE);
                     pw.println(username);
                     pw.flush();
-                    String password = JOptionPane.showInputDialog(null, "" +
+                    String password = JOptionPane.showInputDialog(null,
                             "Please enter your password", "Login", JOptionPane.QUESTION_MESSAGE);
                     pw.println(password);
                     pw.flush();
@@ -39,7 +46,7 @@ public class Client {
                     String check = brf.readLine();
                     if (check.equals("Correct")) {
                         String[] customerChoices = {"View approved appointments", "Make/cancel appointments",
-                                "View Calender", "Delete your account"};
+                                                    "View Calender", "Delete your account"};
                         String customerMove = (String) JOptionPane.showInputDialog(null,
                                 "What do you want to do", "Customer menu", JOptionPane.PLAIN_MESSAGE,
                                 null, customerChoices, null);
@@ -155,7 +162,8 @@ public class Client {
                     String check = brf.readLine();
                     if (check.equals("Correct")) {
                         String[] sellerChoice = {"Modify calendar", "Approve appointments",
-                                "View store's approved appointments", "Create store", "Delete your account"};
+                                                 "View store's approved appointments", "Create store",
+                                                 "Delete your account"};
                         String sellerMove = (String) JOptionPane.showInputDialog(null,
                                 "What do you want to do", "Seller menu", JOptionPane.PLAIN_MESSAGE,
                                 null, sellerChoice, null);
@@ -229,7 +237,7 @@ public class Client {
                                 pw.println(calendarName);
                                 pw.flush();
                                 String[] calendarEdition = {"Add appointment", "Remove appointment"};
-                                String calenderEditionMove =(String) JOptionPane.showInputDialog(null,
+                                String calenderEditionMove = (String) JOptionPane.showInputDialog(null,
                                         "How do you want to edit the calendar", "Calendar editor",
                                         JOptionPane.PLAIN_MESSAGE, null, calendarEdition, null);
                                 pw.println(calenderEditionMove);

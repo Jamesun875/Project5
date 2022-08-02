@@ -95,11 +95,11 @@ public class Calender {
         renewTimeStamp();
     }
 
-    public String makeAppointment(String title) {
+    public String makeAppointment(String titleName) {
         String output = "";
         boolean success = false;
         for (int i = 0; i < appointments.size(); i++) {
-            if (appointments.get(i).getTitle().equals(title)) {
+            if (appointments.get(i).getTitle().equals(titleName)) {
                 if (appointments.get(i).getBooking() + 1 <= appointments.get(i).getCapacity()) {
                     output = "Appointment is made";
                     success = true;
@@ -117,11 +117,11 @@ public class Calender {
         return output;
     }
 
-    public String cancelAppointment(String title) {
+    public String cancelAppointment(String titleName) {
         String output = "";
         boolean success = false;
         for (int i = 0; i < appointments.size(); i++) {
-            if (appointments.get(i).getTitle().equals(title) && appointments.get(i).getBooking() > 0) {
+            if (appointments.get(i).getTitle().equals(titleName) && appointments.get(i).getBooking() > 0) {
                 output = "Appointment is canceled";
                 success = true;
                 appointments.get(i).setBooking(appointments.get(i).getBooking() - 1);
@@ -136,18 +136,18 @@ public class Calender {
     }
 
 
-    public void editAppointment(String title, Appointment appointment) {
+    public void editAppointment(String titleName, Appointment appointment) {
         for (int i = 0; i < appointments.size(); i++) {
-            if (appointments.get(i).getTitle().equals(title)) {
+            if (appointments.get(i).getTitle().equals(titleName)) {
                 appointments.set(i, appointment);
             }
         }
         renewTimeStamp();
     }
 
-    public String buildAppointment(String title, String calender, String store, int capacity, int booking, int startTime,
-                                 int endTime) {
-        Appointment appointment = new Appointment(title, calender, store, capacity, booking, startTime, endTime);
+    public String buildAppointment(String titleName, String calender, String store, int capacity, int booking,
+                                   int startTime, int endTime) {
+        Appointment appointment = new Appointment(titleName, calender, store, capacity, booking, startTime, endTime);
         appointments.add(appointment);
         updateCalender();
         return "New appointment was added";
@@ -177,16 +177,17 @@ public class Calender {
             pw.close();
             output = "successful import";
         } catch (Exception e) {
-            output = "Please enter the correct filenames, and make sure the file only contains appointments with correct format";
+            output = "Please enter the correct filenames, and make sure the file only contains appointments " +
+                    "with correct format";
         }
         return output;
     }
-    public String removeAppointment(String title) {
+    public String removeAppointment(String titleName) {
         boolean found = false;
         int location = 0;
         String output = "";
         for (int i = 0; i < getAppointments().size(); i++) {
-            if (getAppointments().get(i).getTitle().equals(title)) {
+            if (getAppointments().get(i).getTitle().equals(titleName)) {
                 found = true;
                 location = i;
                 output = "Appointment is removed";

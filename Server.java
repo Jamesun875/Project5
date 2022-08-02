@@ -5,7 +5,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+/**
+ * The server class does all the users action by receiving commands from client.
+ *
+ * <p>Purdue University -- CS18000 -- Summer 2022 -- Project4</p>
+ *
+ * @author James Sun
+ * @version July 29, 2022
+ */
 public class Server extends Thread {
     Socket socket;
     public static void main(String[] args) throws IOException {
@@ -117,7 +124,7 @@ public class Server extends Thread {
                             Store store = new Store(storeName);
                             String calendarMove = brf.readLine();
 
-                            if (calendarMove.equals("Create calendar")){
+                            if (calendarMove.equals("Create calendar")) {
                                 String createMove = brf.readLine();
 
                                 if (createMove.equals("Build an empty calendar")) {
@@ -136,7 +143,7 @@ public class Server extends Thread {
                                     pw.flush();
                                 }
                             } else if (calendarMove.equals("Edit calendar")) {
-                                String calendarName =brf.readLine();
+                                String calendarName = brf.readLine();
                                 Calender calender = new Calender(calendarName);
                                 String calendarEditionMove = brf.readLine();
 
