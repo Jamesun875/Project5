@@ -3,9 +3,9 @@ This Program contains 9 classes: Account.java, Appointment.java, Calender.java, 
 
 James submitted Vocareum workspace.
 
-Saanika submitted the Report on Brightspace.
+Spencer submitted the Report on Brightspace.
 
-Spencer submitted the Presentation on Brightspace.
+Saanika submitted the Presentation on Brightspace.
 
 
 ## Appointment.java
